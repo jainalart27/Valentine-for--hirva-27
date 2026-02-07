@@ -16,7 +16,39 @@
             <button id="noBtn" onclick="handleNo()">No 💔</button>
         </div>
     </div>
+let noCount = 0;
 
-    <script src="script.js"></script>
-</body>
-</html>
+let noTexts = [
+    "No 💔",
+    "Are you sure?",
+    "Really sure?",
+    "Think again!",
+    "Last chance...",
+    "Please 😢",
+    "Don’t break my heart 💔",
+    "Say yes 😭",
+    "Pretty please ❤️",
+    "Just say yes 😍"
+];
+
+function noFunction() {
+    let yesBtn = document.getElementById("yesBtn");
+    let noBtn = document.getElementById("noBtn");
+
+    // Increase size of YES button
+    yesBtn.style.transform = `scale(${1 + noCount * 0.15})`;
+
+    // Change NO button text
+    noBtn.innerText = noTexts[noCount] || "Please say YES ❤️";
+
+    noCount++;
+
+    // Optional: move NO button randomly
+    // let randomX = Math.random() * 200 - 100;
+    // let randomY = Math.random() * 200 - 100;
+    // noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+}
+
+function yesFunction() {
+    window.location.href = "yes.html";
+}
